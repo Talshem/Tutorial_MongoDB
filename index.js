@@ -20,7 +20,7 @@ app.get('/api/tutorials', (request, response) => {
     const { title } = request.query;
     Tutorial.find({}).then(tutorials => {
     if(title){
-    let array = tutorials.filter(tutorial => tutorial.content.toUpperCase().includes(title.toUpperCase()))
+    let array = tutorials.filter(tutorial => tutorial.title.toUpperCase().includes(title.toUpperCase()))
     response.json(array)
     } else {
     response.json(tutorials)
@@ -86,8 +86,10 @@ app.delete('/api/tutorials', (request, response, next) => {
 
 
 app.put('/api/tutorials/:id/publish', (request, response, next) => {
-  console.log(request.body)
+  const body = request.body
   const tutorial = {
+  title: body.title,
+  content: body.content,
   published: true,
   }
 
