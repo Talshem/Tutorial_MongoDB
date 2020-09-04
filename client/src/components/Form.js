@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 function Form(props) {
 const [title, setTitle] = useState('')
 const [content, setContent] = useState('')
-const [count, setCount] = useState(0)
+const [count, setCount] = useState(1)
 
 const handleTitle = (event) => {
    setTitle(event.target.value)
@@ -27,7 +27,7 @@ return (
  <form className="form"onSubmit={addTutorial}>
     <textarea required placeholder="Add title for your tutorial..." className="titleInput" type="text" id="tutorialTitle" onChange={handleTitle}/> <br/><br/>
     <textarea required rows="8" placeholder="Add content for your tutorial..." className="contentInput" type="text" id="tutorialContent" onChange={handleContent}/><br/><br/>
-    <input type='submit' id="addButton"/>
+    <input className="submit" type='submit' id="addButton"/>
     </form>
 </div>
 );

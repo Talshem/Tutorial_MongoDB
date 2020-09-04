@@ -9,10 +9,10 @@ const [title, setTitle] = useState('')
 const [content, setContent] = useState('')
 const [count, setCount] = useState(0)
 
-
   return (
 <div>
 <Form count={(e) => setCount(e)} title={(e) => setTitle(e)} content={(e) => setContent(e)}/>
+<input className="filterList" placeholder="Search..."/>
 <Tutorials count={count} title={title} content={content}/>
 <Footer/>
 </div>
