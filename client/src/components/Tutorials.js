@@ -4,7 +4,8 @@ import axios from 'axios';
 function Tutorials(props) {
 const [title, setTitle] = useState('')
 const [content, setContent] = useState('')
-const [list, setList] = useState([])
+const [edit, setEdit] = useState([])
+const [published, setPublished] = useState([])
 const [count, setCount] = useState(0)
 
 useEffect(() =>{
@@ -25,10 +26,13 @@ setContent(props.content)
     setCount((x) => x + 1);
   };
 
+
  const makeList = (array) => {
-    const newArray = array.map((e) => {
+     console.log(array)
+    const editArray = array.map((e) => {
+    if(!e.published){
       return (
-        <div style={{ background:"red" }} className="tutorial" key={e.id}>
+        <div className="tutorialEdit" key={e.id}>
           <h4 className="title">{e.title}</h4>
           <p className="content">{e.content}</p>
           <p>{JSON.stringify(e.published)}</p>
@@ -39,12 +43,33 @@ setContent(props.content)
           <button onClick={() => makePublished(e.id)}>Publish</button>
         </div>
       );
-    });
-    setList(newArray);
+    }});
+
+    const publishedArray = array.map((e) => {
+    if (e.published){
+      return (
+        <div className="tutorialPublished" key={e.id}>
+          <h4 className="title">{e.title}</h4>
+          <p className="content">{e.content}</p>
+          <p>{JSON.stringify(e.published)}</p>
+        <p>
+            {e.date}
+            {Number(e.date.substr(11, 2)) > 11 ? ' PM' : ' AM'}
+          </p>
+          <button onClick={() => makePublished(e.id)}>Publish</button>
+        </div>
+      );
+    }});
+    setEdit(editArray);
+    setPublished(publishedArray);
   };
 
+
     return(
-<div>{list}</div>
+<div className="flex-container">
+<div className="edit">{edit}</div>
+<div className="published">{published}</div>
+</div>
     );
 }
 

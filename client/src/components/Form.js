@@ -23,12 +23,10 @@ props.count(count)
 
 return (
 <div>
- <h1>Tutorials</h1>
- <form onSubmit={addTutorial}>
-    <label> Title: </label>
-    <input type="text" id="tutorialTitle" onChange={handleTitle}/> <br/><br/>
-    <label>Content: </label>
-    <input type="text" id="tutorialContent" onChange={handleContent}/><br/><br/>
+ <h1 className="head">Tutorials.</h1>
+ <form className="form"onSubmit={addTutorial}>
+    <textarea required placeholder="Add title for your tutorial..." className="titleInput" type="text" id="tutorialTitle" onChange={handleTitle}/> <br/><br/>
+    <textarea required rows="8" placeholder="Add content for your tutorial..." className="contentInput" type="text" id="tutorialContent" onChange={handleContent}/><br/><br/>
     <input type='submit' id="addButton"/>
     </form>
 </div>

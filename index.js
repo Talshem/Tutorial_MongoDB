@@ -54,9 +54,6 @@ Tutorial.findById(request.params.id)
 
 app.post('/api/tutorials', (request, response) => {
 const body = request.body
-  if (body.title == "" || body.content == "") {
-    return response.send(`Can't publish an empty tutorial!`)
-  }
 
   const tutorial = new Tutorial({
     title: body.title,
