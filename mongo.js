@@ -19,10 +19,10 @@ published: Boolean,
 const Tutorial = mongoose.model('Tutorial', tutorialSchema)
 
 const tutorial = new Tutorial({
-title: 'Introduction to API',
-content: 'blah blah blag',
-date: new Date(),
-published: true,
+title: 'test',
+content: 'another test',
+date: new Date().toISOString().substr(0, 19).replace('T', ', '),
+published: false,
 })
 
 tutorial.save().then(result => {

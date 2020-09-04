@@ -54,13 +54,15 @@ Tutorial.findById(request.params.id)
 
 app.post('/api/tutorials', (request, response) => {
 const body = request.body
-  if (body.name == "" || body.number == "") {
+  if (body.title == "" || body.content == "") {
     return response.send(`Can't publish an empty tutorial!`)
   }
 
   const tutorial = new Tutorial({
-    name: body.name,
-    number: body.number,
+    title: body.title,
+    content: body.content,
+    date: new Date().toISOString().substr(0, 19).replace('T', ', '),
+    published: false,
   })
 
     tutorial.save().then(savedTutorial => {
@@ -89,7 +91,7 @@ app.delete('/api/tutorials', (request, response, next) => {
 app.put('/api/tutorials/:id/publish', (request, response, next) => {
   console.log(request.body)
   const tutorial = {
-  published: false,
+  published: true,
   }
 
   Tutorial.findByIdAndUpdate(request.params.id, tutorial, { new: true })
@@ -106,11 +108,11 @@ app.put('/api/tutorials/:id', (request, response, next) => {
   const tutorial = {
     title: body.title,
     content: body.content,
-    date: new Date(),
+    date: new Date().toISOString().substr(0, 19).replace('T', ', '),
   }
   Tutorial.findByIdAndUpdate(request.params.id, tutorial, { new: true })
     .then(updatedTutorial => {
-      response.json(tutorial)
+      response.json(updatedTutorial)
     })
     .catch(error => next(error))
 })
