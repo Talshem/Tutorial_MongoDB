@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 if (process.argv.length < 3) {
   console.log('Please provide the password as an argument: node mongo.js <password>')
@@ -6,32 +7,32 @@ if (process.argv.length < 3) {
 }
 
 const url = process.env.MONGODB_URI;
-
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const tutorialSchema = new mongoose.Schema({
-  content: String,
-  date: Date,
-  important: Boolean,
+title: String,
+content: String,
+date: String,
+published: Boolean,
 })
 
 const Tutorial = mongoose.model('Tutorial', tutorialSchema)
 
 const tutorial = new Tutorial({
-  content: 'HTML is Easy',
-  date: new Date(),
-  important: true,
+title: 'Introduction to API',
+content: 'blah blah blag',
+date: new Date(),
+published: true,
 })
 
 tutorial.save().then(result => {
-  console.log('person saved!')
+  console.log('tutorial saved!')
   mongoose.connection.close()
 })
 
 
 Tutorial.find({}).then(result => {
-  result.forEach(note => {
-    console.log(note)
+  result.forEach(tutorial => {
   })
   mongoose.connection.close()
 })
