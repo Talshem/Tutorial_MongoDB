@@ -87,10 +87,13 @@ app.delete('/api/tutorials', (request, response, next) => {
 
 
 app.put('/api/tutorials/:id/publish', (request, response, next) => {
+const date = new Date();
+date.setHours(date.getHours() + 3);
   const body = request.body
   const tutorial = {
   title: body.title,
   content: body.content,
+  date: date,
   published: true,
   }
 
