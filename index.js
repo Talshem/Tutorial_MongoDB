@@ -54,11 +54,12 @@ Tutorial.findById(request.params.id)
 
 app.post('/api/tutorials', (request, response) => {
 const body = request.body
-
+const date = new Date();
+date.setHours(date.getHours() + 3);
   const tutorial = new Tutorial({
     title: body.title,
     content: body.content,
-    date: new Date().toISOString().substr(0, 19).replace('T', ', '),
+    date: date.toISOString().substr(0, 19).replace('T', ', '),
     published: false,
   })
 
