@@ -14,7 +14,7 @@ function Tutorials(props) {
   const [search, setSearch] = useState('');
   const [length, setLength] = useState(5);
   const [more, setMore] = useState(true);
-  const [loading, setLoading] = useState('Loading')
+  const [loading, setLoading] = useState('Loading');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,7 +29,6 @@ function Tutorials(props) {
     }, 800);
     return () => clearInterval(interval);
   }, []);
-
 
   useEffect(() => {
     const fetchDataEdit = async () => {
@@ -107,15 +106,15 @@ function Tutorials(props) {
   const publishedList = (array) => {
     const publishedArray = array.map((e) => (
       <div className="tutorialPublished" key={e.id}>
-        <p className="title">{e.title}</p>
-        <p className="content">{e.content}</p>
-        <p style={{ marginBottom: '-30px' }}>
+        <p spellCheck="false" className="title">{e.title}</p>
+        <p spellCheck="false" className="content">{e.content}</p>
+        <p>
           {e.date}
           {Number(e.date.substr(11, 2)) > 11 ? ' PM' : ' AM'}
         </p>
         <button
           style={{
-            background:'rgb(214, 214, 214)', margin:"10px 1% 0px 0%", position:"relative", float:"right"
+            background: 'rgb(214, 214, 214)', margin: '-35px 1% 0px 0%', position: 'relative', float: 'right',
           }}
           className="fa fa-trash-o deleteButton"
           onClick={() => makeDeleted(e.id)}
@@ -140,9 +139,9 @@ function Tutorials(props) {
 
       return (
         <div className="tutorialEdit" key={e.id}>
-          <textarea required className="eTitle" defaultValue={eTitle} onChange={editTitle} />
+          <textarea spellCheck="false" required className="eTitle" defaultValue={eTitle} onChange={editTitle} />
           <p className="titleEdit">&#9998;</p>
-          <textarea required rows="4" className="eContent" defaultValue={eContent} onChange={editContent} />
+          <textarea spellCheck="false" required rows="4" className="eContent" defaultValue={eContent} onChange={editContent} />
           <p className="contentEdit">&#9998;</p>
           <p style={{ marginTop: '-35px' }}>
             {e.date}
@@ -183,7 +182,14 @@ function Tutorials(props) {
         dataLength={length}
         next={fetchMoreData}
         hasMore={more}
-        loader={<p style={{ fontSize: '80px', color: 'grey', textAlign: 'center', fontStyle:"italic" }}>{loading}</p>}
+        loader={(
+          <p style={{
+            fontSize: '80px', color: 'grey', textAlign: 'center', fontStyle: 'italic',
+          }}
+          >
+            {loading}
+          </p>
+        )}
       />
     </div>
   );
