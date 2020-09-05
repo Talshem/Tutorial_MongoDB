@@ -7,6 +7,7 @@
 }
 
 .submit{
+cursor: pointer;
 display: block;
 padding-top:7px;
 padding-bottom:5px;
@@ -16,6 +17,10 @@ margin-top:-10px;
 border-radius: 5px;
 border: 1.5px solid rgb(218, 218, 218);
 background: rgb(219, 231, 214)
+}
+
+.submit:hover{
+background: rgb(204, 218, 199)
 }
 
 .footer{
@@ -100,7 +105,7 @@ padding-bottom:5px;
 min-height: 20px;
 background:rgb(240, 240, 240);
 margin-bottom: -5px;
-width:832px;
+width:830px;
 word-wrap: break-word;
 overflow: auto;
 }
@@ -231,10 +236,15 @@ padding-top:7px;
 margin-bottom:11px;
 padding-bottom:5px;
 width:98%;
+cursor: pointer;
 margin-top:-10px;
 border-radius: 5px;
 border: 1px solid rgb(219, 231, 214);
 background: rgb(219, 231, 214)
+}
+
+.publishButton:hover{
+background: rgb(204, 218, 199)
 }
 
 .saveButton{
@@ -246,6 +256,10 @@ border:black;
 font-size: 25px;
 }
 
+.saveButton:hover{
+background:rgb(196, 196, 196);
+}
+
 .deleteButton{
 background: rgb(250, 165, 150);
 border:white;
@@ -255,6 +269,10 @@ margin-right:5px;
 cursor: pointer;
 margin-left: 100px;
 border-radius: 5px;
+}
+
+.deleteButton:hover{
+background: rgb(228, 145, 131);
 }
 
 .deleteAll{
