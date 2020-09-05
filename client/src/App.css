@@ -209,11 +209,11 @@ overflow: auto;
 }
 
 .eTitle:focus ~ .titleEdit{
-color: rgb(240, 240, 240);
+opacity: 0;
 }
 
 .eContent:focus ~ .contentEdit{
-color: rgb(240, 240, 240);
+opacity: 0;
 }
 
 .eContent{
