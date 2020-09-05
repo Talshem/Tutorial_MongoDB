@@ -99,7 +99,7 @@ function Tutorials(props) {
         </p>
         <button
           style={{
-            background: 'rgb(214, 214, 214)', marginLeft: '800px', marginTop: '8px', marginBottom: '6px',
+            background: 'rgb(214, 214, 214)', marginLeft: '798px', marginTop: '8px', marginBottom: '6px',
           }}
           className="fa fa-trash-o deleteButton"
           onClick={() => makeDeleted(e.id)}
