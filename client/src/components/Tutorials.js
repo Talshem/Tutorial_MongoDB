@@ -14,6 +14,22 @@ function Tutorials(props) {
   const [search, setSearch] = useState('');
   const [length, setLength] = useState(5);
   const [more, setMore] = useState(true);
+  const [loading, setLoading] = useState('Loading')
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLoading((x) => `${x} .`);
+    }, 200);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLoading(() => 'Loading');
+    }, 800);
+    return () => clearInterval(interval);
+  }, []);
+
 
   useEffect(() => {
     const fetchDataEdit = async () => {
@@ -99,7 +115,7 @@ function Tutorials(props) {
         </p>
         <button
           style={{
-            background: 'rgb(214, 214, 214)', marginLeft: '799px', marginTop: '8px', marginBottom: '6px',
+            background:'rgb(214, 214, 214)', margin:"10px 7px 0px 0px", position:"relative", float:"right"
           }}
           className="fa fa-trash-o deleteButton"
           onClick={() => makeDeleted(e.id)}
@@ -167,7 +183,7 @@ function Tutorials(props) {
         dataLength={length}
         next={fetchMoreData}
         hasMore={more}
-        loader={<p style={{ fontSize: '32px', color: 'grey', textAlign: 'center' }}>Loading . . .</p>}
+        loader={<p style={{ fontSize: '80px', color: 'grey', textAlign: 'center', fontStyle:"italic" }}>{loading}</p>}
       />
     </div>
   );
