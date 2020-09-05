@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function Form(props) {
 const [title, setTitle] = useState('')
@@ -19,12 +19,13 @@ setCount(e => e + 1)
 props.title(title)
 props.content(content)
 props.count(count)
+document.getElementById("tutorialForm").reset();
 }
 
 return (
 <div>
  <h1 className="head">Tutorials.</h1>
- <form className="form"onSubmit={addTutorial}>
+ <form id="tutorialForm" className="form" onSubmit={addTutorial}>
     <textarea required placeholder="Add title for your tutorial..." className="titleInput" type="text" id="tutorialTitle" onChange={handleTitle}/> <br/><br/>
     <textarea required rows="8" placeholder="Add content for your tutorial..." className="contentInput" type="text" id="tutorialContent" onChange={handleContent}/><br/><br/>
     <input className="submit" type='submit' id="addButton"/>

@@ -165,8 +165,8 @@ max-height: 120px;
 .eTitle{
 display: block;
 border:solid white;
-min-height:30px;
-height:30px;
+min-height:25px;
+height:25px;
 width:96%;
 margin-top:7px;
 background:rgb(240, 240, 240);
@@ -193,14 +193,14 @@ display: block;
 border:solid white;
 background:rgb(240, 240, 240);
 width:96%;
-margin-top:-45px;
+margin-top:-40px;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 font-size: 16px;
 }
 
 .titleEdit{
 position: relative;
-top:-43px;
+top:-40px;
 color:grey;
 left:325px;
 }
@@ -208,7 +208,7 @@ left:325px;
 .contentEdit{
 position: relative;
 color:grey;
-bottom:42px;
+bottom:40px;
 left:325px;
 }
 
