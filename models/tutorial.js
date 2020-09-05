@@ -15,8 +15,10 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   })
 
 const tutorialSchema = new mongoose.Schema({
-name: String,
-number: String,
+title: String,
+content: String,
+date: String,
+published: Boolean,
 })
 
 tutorialSchema.set('toJSON', {
@@ -27,4 +29,4 @@ tutorialSchema.set('toJSON', {
   }
 })
 
-module.exports = mongoose.model('Person', personSchema)
+module.exports = mongoose.model('Tutorial', tutorialSchema)
