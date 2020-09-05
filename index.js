@@ -93,7 +93,7 @@ date.setHours(date.getHours() + 3);
   const tutorial = {
   title: body.title,
   content: body.content,
-  date: date,
+  date: date.toISOString().substr(0, 19).replace('T', ', '),
   published: true,
   }
 
@@ -106,12 +106,13 @@ date.setHours(date.getHours() + 3);
 
 
 app.put('/api/tutorials/:id', (request, response, next) => {
-
+const date = new Date();
+date.setHours(date.getHours() + 3);
   const body = request.body
   const tutorial = {
     title: body.title,
     content: body.content,
-    date: new Date().toISOString().substr(0, 19).replace('T', ', '),
+    date: date.toISOString().substr(0, 19).replace('T', ', '),
   }
   Tutorial.findByIdAndUpdate(request.params.id, tutorial, { new: true })
     .then(updatedTutorial => {
